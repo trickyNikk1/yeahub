@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 
 import styles from './styles.module.css'
 
-import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
+import { useOnClickOutside } from '@/shared/lib'
 
 interface Props {
   items: React.ReactNode[]

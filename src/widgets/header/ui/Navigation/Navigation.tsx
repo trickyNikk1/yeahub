@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router'
 
 import { LogoWithText } from '../LogoWithText/LogoWithText'
+import { Dropdown } from '../Dropdown/Dropdown'
 
 import styles from './styles.module.css'
-
-import { Dropdown } from '@/shared/ui'
 
 const items = [
   <NavLink to={'/questions'}>База вопросов</NavLink>,
