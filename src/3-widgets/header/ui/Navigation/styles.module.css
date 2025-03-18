@@ -1,0 +1,38 @@
+.dropdown {
+    display: flex;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.list {
+    display: none;
+}
+
+@media (width > 1440px) {
+    .navigation {
+        gap: 20px
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .dropdown {
+        display: none;
+    }
+}

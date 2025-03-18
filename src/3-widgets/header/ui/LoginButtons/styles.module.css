@@ -1,0 +1,25 @@
+.buttons {
+    display: none;
+}
+
+.login {
+    padding: 26px 15px;
+    color: var(--purple-700);
+}
+
+.signup {
+    padding: 11.5px 28.5px;
+    color: var(--white-900);
+    background-color: var(--purple-700);
+    border-radius: 12px;
+}
+
+@media (width >= 1440px) {
+    .buttons {
+        display: flex;
+    }
+
+    .burger {
+        display: none;
+    }
+}

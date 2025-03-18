@@ -1,0 +1,87 @@
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;    
+    padding: 0 10px;
+    border: none;
+    flex-direction: column;
+    background: none;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 6px;    
+    padding: 4.5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.label {
+    font-size: var(--text-md);
+    font-weight: var(--font-weight-medium);
+    line-height: 140%;
+}
+
+.arrow {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('/src/6-shared/assets/svg/arrow-down.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15.5px 7.5px;
+    transition: transform var(--base-transition);
+}
+
+.list {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: -100;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--white-900);
+    transition: all var(--base-transition);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    opacity: 0;
+    min-width: 100%;
+}
+
+.item {
+    width: 100%;
+    color: inherit;
+    border-radius: 12px;
+    font-size: var(--text-md);
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--base-transition);
+    white-space: nowrap;
+}
+
+.item > a {
+    display: block;
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown:hover .button {
+    color: var(--black-700);
+}
+
+.dropdown:hover .list {
+    top: 100%;
+    opacity: 1;
+    z-index: 100;
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.item:hover {
+    background-color: var(--purple-100);
+}
