@@ -7,6 +7,8 @@ import _import from 'eslint-plugin-import'
 import react from 'eslint-plugin-react'
 import prettier from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
+import tsparser from '@typescript-eslint/parser'
+import tsplugin from '@typescript-eslint/eslint-plugin'
 
 export default tseslint.config(
   { ignores: ['dist', 'node_modules', 'build', 'public', '.husky'] },
@@ -16,6 +18,15 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parser: tsparser,
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2020,
+        project: './tsconfig.app.json',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
     },
     plugins: {
       react: react,
@@ -23,6 +34,7 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
       import: _import,
       prettier: prettierPlugin,
+      ts: tsplugin,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -34,12 +46,6 @@ export default tseslint.config(
       semi: ['error', 'never'],
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 0,
-      'import/no-unresolved': [
-        2,
-        {
-          caseSensitive: false,
-        },
-      ],
       'react/jsx-filename-extension': [
         1,
         {

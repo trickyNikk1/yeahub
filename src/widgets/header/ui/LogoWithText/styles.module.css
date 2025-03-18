@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text {
+  position: absolute;
+  left: 41px;
+  transition: all var(--base-transition);
+  opacity: 0;
+}
+
+@media (width >= 768px) {
+  .text {
+    position: static;
+    opacity: 1;
+  }
+}

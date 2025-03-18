@@ -1,0 +1,11 @@
+.header {
+  background-color: var(--white-900);
+  border-bottom: 1px solid var(--black-50);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

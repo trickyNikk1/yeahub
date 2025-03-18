@@ -1,0 +1,100 @@
+:root {
+  /* Widths */
+  --container-width: 1216px;
+  --container-width-lg: 960px;
+  --container-width-tablet: 708px;
+  --container-width-sm: 540px;
+  --container-width-mobile: 100%;
+  --grid-template-columns: 332px 244px 244px;
+  --header-height: 76px;
+
+  /* Transitions */
+  --base-transition: 0.3s ease-in-out;
+  --drawer-transition-speed: 0.3s;
+
+  /* Fonts */
+  --font-family-default: 'Manrope', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+
+  /* Headers */
+  --head1: 3.75rem; /* 60px */
+  --head2: 2.5rem; /* 40px */
+  --head3: 2.125rem; /* 34px */
+  --head4: 1.125rem; /* 18px */
+  --head5: 1.125rem; /* 18px */
+
+  /* Text sizes */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-md: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-xxl: 1.5rem; /* 24px */
+
+  /* Padding */
+  --padding-container-sm: 10px 10px;
+  --padding-container-md: 15px 30px;
+
+  /* Colors */
+
+  /* Primary */
+  --purple-900: #400799;
+  --purple-800: #5509cc;
+  --purple-700: #6a0bff;
+  --purple-600: #883cff;
+  --purple-500: #a66dff;
+  --purple-400: #c39dff;
+  --purple-300: #d2b6ff;
+  --purple-200: #e1ceff;
+  --purple-100: #f0e7ff;
+
+  /* Error */
+  --red-900: #880727;
+  --red-800: #af0932;
+  --red-700: #d50b3e;
+  --red-600: #f3164e;
+  --red-500: #f53d6b;
+  --red-400: #f76489;
+  --red-300: #f98ba6;
+  --red-200: #fbb1c4;
+  --red-100: #fdd8e1;
+
+  /* Warning */
+  --yellow-900: #faaf00;
+  --yellow-800: #ffc233;
+  --yellow-700: #ffce5d;
+  --yellow-600: #ffda85;
+
+  /* Success */
+  --green-900: #17653a;
+  --green-800: #1e874c;
+  --green-700: #26a95f;
+  --green-600: #69cf7a;
+
+  /* Black */
+  --black-900: #191919;
+  --black-800: #303030;
+  --black-700: #474747;
+  --black-600: #5e5e5e;
+  --black-500: #757575;
+  --black-400: #8c8c8c;
+  --black-300: #a3a3a3;
+  --black-200: #bababa;
+  --black-100: #d1d1d1;
+  --black-50: #e8e8e8;
+  --black-25: #f4f4f4;
+  --black-10: #f8f8f8;
+
+  /* White */
+  --white-900: #fff;
+
+  /* Backgrounds */
+  --bg-logo: #4600e9;
+  --bg-body: #f8f8f8;
+
+  /* Shadows */
+  --main-shadow: 0px 4px 10px 0px rgb(106 99 118 / 10%);
+}
