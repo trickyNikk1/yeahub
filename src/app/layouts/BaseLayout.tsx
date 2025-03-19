@@ -4,11 +4,9 @@ import { Header } from '@/widgets/header'
 
 export const BaseLayout = () => {
   return (
-    <div className="wrapper">
+    <>
       <Header />
-      <div className="container">
-        <Outlet />
-      </div>
-    </div>
+      <Outlet />
+    </>
   )
 }

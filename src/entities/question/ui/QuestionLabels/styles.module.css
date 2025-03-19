@@ -1,0 +1,25 @@
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  color: var(--black-800);
+  background-color: var(--black-10);
+  border-radius: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 120%;
+}
+
+.number {
+  padding: 2px 4px;
+  color: var(--white-900);
+  background-color: var(--purple-700);
+  border-radius: 4px;
+}

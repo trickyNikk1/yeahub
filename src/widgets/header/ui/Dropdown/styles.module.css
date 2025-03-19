@@ -25,11 +25,11 @@
   line-height: 140%;
 }
 
-.arrow {
+.chevron {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url('/src/6-shared/assets/svg/arrow-down.svg');
+  background-image: url('/src/shared/assets/svg/chevron-down.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 15.5px 7.5px;
@@ -78,7 +78,7 @@
   z-index: 100;
 }
 
-.dropdown:hover .arrow {
+.dropdown:hover .chevron {
   transform: rotate(180deg);
 }
 

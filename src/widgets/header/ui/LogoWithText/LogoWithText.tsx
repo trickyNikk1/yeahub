@@ -4,14 +4,14 @@ export const LogoWithText = () => {
     <div className={styles.container}>
       <img
         className={styles.logo}
-        src="src\shared\assets\svg\logo.svg"
+        src="\src\shared\assets\svg\logo.svg"
         alt="Logo"
         width={33}
         height={33}
       />
       <img
         className={styles.text}
-        src="src\shared\assets\svg\logo-text-black.svg"
+        src="\src\shared\assets\svg\logo-text-black.svg"
         alt="Yeahub"
         width={99}
         height={32}
