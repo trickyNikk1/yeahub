@@ -15,7 +15,7 @@ export const Dropdown = ({
     <div className={`${styles.dropdown} ${className}`} {...otherProps}>
       <button type="button" className={styles.button}>
         <span className={styles.label}>{title}</span>
-        <span className={styles.arrow}></span>
+        <span className={styles.chevron}></span>
       </button>
       <ul className={styles.list}>
         {items.map((item, index) => {
