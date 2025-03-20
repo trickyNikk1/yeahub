@@ -91,8 +91,10 @@
   /* White */
   --white-900: #fff;
 
+  /* Brand */
+  --brand: #53f;
+
   /* Backgrounds */
-  --bg-logo: #4600e9;
   --bg-body: #f8f8f8;
 
   /* Shadows */

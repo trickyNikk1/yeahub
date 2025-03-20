@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router'
 import { BaseLayout } from './layouts/BaseLayout'
 
 import { Main } from '@/pages/main'
+import { QuestionPage } from '@/pages/question'
 
 export const appRouter = createBrowserRouter([
   {
@@ -12,6 +13,14 @@ export const appRouter = createBrowserRouter([
       {
         path: '/',
         element: <Main />
+      },
+      {
+        path: '/questions',
+        element: <Main />
+      },
+      {
+        path: '/questions/:id',
+        element: <QuestionPage />
       },
       {
         path: '*',
