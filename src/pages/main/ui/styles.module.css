@@ -17,11 +17,25 @@
 .container {
   display: flex;
   padding: 20px 10px;
-  width: 100%;
+  margin: 0 auto;
   background-color: var(--white-900);
   border-radius: 16px;
   box-shadow: var(--base-shadow);
+  max-width: 708px;
   flex-direction: column;
+}
+
+@media (width >=768px) {
+  .container {
+    padding: 16px;
+    box-shadow: var(--main-shadow);
+  }
+}
+
+@media (width >=1440px) {
+  .container {
+    max-width: 804px;
+  }
 }
 
 .title {
