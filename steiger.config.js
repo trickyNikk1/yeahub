@@ -9,4 +9,16 @@ export default defineConfig([
       'fsd/public-api': 'off',
     },
   },
+  {
+    files: ['src/shared/lib/hooks/useAppDispatch.ts'],
+    rules: {
+      'fsd/forbidden-imports': 'off',
+    },
+  },
+  {
+    files: ['src/shared/lib/hooks/useAppSelector.ts'],
+    rules: {
+      'fsd/forbidden-imports': 'off',
+    },
+  },
 ])
