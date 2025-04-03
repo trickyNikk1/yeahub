@@ -1,0 +1,28 @@
+.button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.button:disabled:hover {
+  transform: none;
+  cursor: inherit;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  color: var(--black-800);
+  border: 1px solid var(--black-200);
+  border-radius: 12px;
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-regular);
+  white-space: nowrap;
+}
+
+.option.active {
+  border: 1px solid var(--purple-700);
+}

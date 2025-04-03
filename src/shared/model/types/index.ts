@@ -1,4 +1,8 @@
-export type SkeletonType = 'questionsList' | 'questionPage'
+export type SkeletonType =
+  | 'questionsList'
+  | 'questionPage'
+  | 'options'
+  | 'optionsReverse'
 
 export interface Skill {
   id: number

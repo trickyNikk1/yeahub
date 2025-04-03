@@ -12,7 +12,7 @@
   opacity: 0;
 }
 
-@media (width >= 768px) {
+@media (width >= 708px) {
   .text {
     position: static;
     opacity: 1;

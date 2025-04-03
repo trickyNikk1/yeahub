@@ -1,0 +1,21 @@
+.input {
+  padding: 13.5px 24px;
+  padding-left: 52px;
+  width: 100%;
+  background-image: url('/src/shared/assets/svg/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center left 24px;
+  background-color: var(--white-900);
+  border: 1px solid var(--black-50);
+  border-radius: 68px;
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-regular);
+  line-height: 130%;
+  outline: none;
+  transition: border var(--base-transition);
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid var(--purple-700);
+}
