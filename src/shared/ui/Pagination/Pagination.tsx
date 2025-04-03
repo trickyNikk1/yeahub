@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import styles from './styles.module.css'
 
 interface Props {
@@ -9,32 +7,29 @@ interface Props {
 }
 
 export const Pagination = ({ total, current, handler }: Props) => {
-  const [currentPage, setCurrentPage] = useState(current)
-
   if (total <= 1) return null
 
   const generatePageNumbers = () => {
     if (total <= 10) return Array.from({ length: total }, (_, i) => i + 1)
 
-    if (currentPage < 5) {
+    if (current < 5) {
       return [...[...Array(6).keys()].map(i => i + 1), ...['...', total]]
     }
 
-    if (currentPage >= total - 3) {
+    if (current >= total - 3) {
       return [1, '...'].concat(
         Array.from({ length: 6 }, (_, i) => total - 5 + i)
       )
     }
 
     return [1, '...'].concat(
-      Array.from({ length: 6 }, (_, i) => currentPage - 3 + i),
+      Array.from({ length: 6 }, (_, i) => current - 3 + i),
       ['...', total]
     )
   }
 
   const handlePageChange = (page: number) => {
-    if (page !== currentPage && typeof page === 'number') {
-      setCurrentPage(page)
+    if (page !== current && typeof page === 'number') {
       handler(page)
     }
   }
@@ -45,15 +40,15 @@ export const Pagination = ({ total, current, handler }: Props) => {
     <nav className={styles.pagination}>
       <button
         className={styles.prev}
-        disabled={currentPage === 1}
-        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={current === 1}
+        onClick={() => handlePageChange(current - 1)}
       ></button>
       {pageNumbers.map((num, index) =>
         typeof num === 'number' ? (
           <button
             key={index}
             className={styles.page}
-            disabled={num === currentPage}
+            disabled={num === current}
             onClick={() => handlePageChange(num)}
           >
             {num}
@@ -68,8 +63,8 @@ export const Pagination = ({ total, current, handler }: Props) => {
       )}
       <button
         className={styles.next}
-        disabled={currentPage === total}
-        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={current === total}
+        onClick={() => handlePageChange(current + 1)}
       ></button>
     </nav>
   )
