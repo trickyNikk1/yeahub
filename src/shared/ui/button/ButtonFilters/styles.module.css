@@ -1,0 +1,13 @@
+.button {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--black-200);
+  background: none;
+  cursor: pointer;
+  border-radius: 8px;
+  align-self: flex-end;
+  background-image: url('/src/shared/assets/svg/filters-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -32,6 +32,11 @@ button {
   cursor: pointer;
 }
 
-.active {
+button:disabled:hover {
+  transform: none;
+  cursor: inherit;
+}
+
+a.active {
   text-decoration: underline;
 }

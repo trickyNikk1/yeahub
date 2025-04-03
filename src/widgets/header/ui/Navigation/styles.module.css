@@ -20,7 +20,7 @@
   display: none;
 }
 
-@media (width > 1440px) {
+@media (width > 1216px) {
   .navigation {
     gap: 20px;
   }

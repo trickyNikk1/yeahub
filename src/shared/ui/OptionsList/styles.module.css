@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 120%;
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.button {
+  color: var(--purple-800);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 100%;
+  text-decoration: underline;
+}

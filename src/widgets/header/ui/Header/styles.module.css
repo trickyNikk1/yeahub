@@ -14,7 +14,7 @@
   max-width: var(--container-width);
 }
 
-@media (width >=768px) {
+@media (width >=708px) {
   .container {
     padding: var(--padding-container-md);
   }
