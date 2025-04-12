@@ -1,12 +1,12 @@
-import DOMPurify from 'dompurify'
 import { useState } from 'react'
 
 import { IQuestion } from '../../model/types'
-import { AccordionButton } from '../AccordionButton/AccordionButton'
 import { QuestionLabels } from '../QuestionLabels/QuestionLabels'
-import { LinkMore } from '../LinkMore/LinkMore'
+import { Answer } from '../Answer/Answer'
 
 import styles from './styles.module.css'
+
+import { AccordionButton, LinkMore } from '@/shared/ui'
 
 interface Props {
   questionData: IQuestion
@@ -14,10 +14,6 @@ interface Props {
 
 export const QuestionAccordion = ({ questionData: question }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
-
-  const cleanAnswerHtml = {
-    __html: `${DOMPurify.sanitize(question.shortAnswer)}`
-  }
 
   const clickHandler = () => {
     setIsOpen(!isOpen)
@@ -31,14 +27,17 @@ export const QuestionAccordion = ({ questionData: question }: Props) => {
         isOpen={isOpen}
       />
       <div className={isOpen ? styles.body : styles['hidden-body']}>
-        <QuestionLabels rate={question.rate} complexity={question.complexity} />
+        <QuestionLabels
+          className={styles.labels}
+          labels={[
+            { name: 'Рейтинг', value: question?.rate ?? 0 },
+            { name: 'Сложность', value: question?.complexity ?? 0 }
+          ]}
+        />
         {question.imageSrc && (
           <img src={question.imageSrc} alt="Question image" />
         )}
-        <div
-          className={styles.answer}
-          dangerouslySetInnerHTML={cleanAnswerHtml}
-        ></div>
+        <Answer className={styles.answer} answerData={question.shortAnswer} />
         <LinkMore to={`questions/${question.id}`}>Подробнее</LinkMore>
       </div>
     </article>

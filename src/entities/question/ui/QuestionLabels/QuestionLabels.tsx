@@ -1,19 +1,30 @@
 import styles from './styles.module.css'
 
-interface Props {
-  rate: number
-  complexity: number
+type Label = {
+  name: string
+  value: string | number
 }
 
-export const QuestionLabels = ({ rate, complexity }: Props) => {
+interface Props {
+  labels: Label[]
+  title?: string
+  className?: string
+}
+
+export const QuestionLabels = ({ labels, title, className = '' }: Props) => {
   return (
-    <div className={styles.labels}>
-      <span className={styles.label}>
-        Рeйтинг: <span className={styles.number}>{rate}</span>
-      </span>
-      <span className={styles.label}>
-        Сложность: <span className={styles.number}>{complexity}</span>
-      </span>
+    <div className={styles.container}>
+      {title ? <h3 className={styles.title}>{title}</h3> : null}
+      <ul className={styles.list + ' ' + className}>
+        {labels.map(label => (
+          <li key={label.name} className={styles.item}>
+            <span className={styles.label}>
+              <span>{label.name}:</span>
+              <span className={styles.number}>{label.value}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

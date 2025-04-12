@@ -2,7 +2,12 @@ import { useState } from 'react'
 
 import { setSpecializationId, setSpecializationTitle } from '../../model/slice'
 
-import { Button, OptionsList, Skeleton } from '@/shared/ui'
+import {
+  Button,
+  OptionsList,
+  SkeletonGroup,
+  SkeletonOptions
+} from '@/shared/ui'
 import { useAppDispatch, useAppSelector } from '@/shared/lib'
 import { useGetSpecializationsQuery } from '@/entities/specialization'
 import { Specialization } from '@/entities/specialization'
@@ -28,7 +33,7 @@ export const SpecializationsList = () => {
   }
 
   return (
-    <Skeleton isLoading={isLoading} type="options">
+    <SkeletonGroup isLoading={isLoading} skeleton={<SkeletonOptions />}>
       <OptionsList<Specialization>
         onOpen={() => {
           setLimit(data?.total || 20)
@@ -38,7 +43,7 @@ export const SpecializationsList = () => {
         renderOption={option => (
           <Button
             data-id={option.id}
-            style="option"
+            variant="option"
             isActive={option.id === specializationId}
             onClick={handleSelectSpecialization}
           >
@@ -46,6 +51,6 @@ export const SpecializationsList = () => {
           </Button>
         )}
       />
-    </Skeleton>
+    </SkeletonGroup>
   )
 }

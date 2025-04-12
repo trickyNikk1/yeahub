@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.title {
+  color: var(--black-700);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 120%;
+}
+
+.keyword {
+  color: var(--purple-700);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-normal);
+  line-height: 160%;
+}
+
+.author {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 120%;
+}
+
+@media (width >= 992px) {
+  .author {
+    align-self: center;
+  }
+}
+
+.name {
+  color: var(--purple-700);
+}

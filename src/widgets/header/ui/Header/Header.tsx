@@ -6,9 +6,11 @@ import styles from './styles.module.css'
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <Navigation />
-        <LoginButtons />
+      <div className="wrapper">
+        <div className={styles.container}>
+          <Navigation />
+          <LoginButtons />
+        </div>
       </div>
     </header>
   )

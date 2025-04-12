@@ -20,8 +20,6 @@ export interface IQuestion {
   questionSpecializations: Specialization[]
   questionSkills: Skill[]
   checksCount?: number
-  isLearned?: boolean
-  profileId?: string
 }
 
 type skillFilterMode = 'ALL' | 'ANY'

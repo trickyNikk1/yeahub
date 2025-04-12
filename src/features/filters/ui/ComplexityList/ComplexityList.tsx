@@ -46,7 +46,7 @@ export const ComplexityList = () => {
       options={options}
       renderOption={option => (
         <Button
-          style="option"
+          variant="option"
           isActive={currentComplexity.includes(Number(option.title[0]))}
           onClick={handleSelectComplexity}
         >
