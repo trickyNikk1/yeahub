@@ -1,9 +1,23 @@
-import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import styles from './styles.module.css'
 
-export const QuestionPage = () => {
-  const { id } = useParams()
+import { QuestionFull } from '@/entities/question'
+import { ButtonCaret } from '@/shared/ui'
 
-  return <h1 className={styles.title}>Question {id}</h1>
+export const QuestionPage = () => {
+  const navigate = useNavigate()
+
+  return (
+    <div className="wrapper">
+      <div className={styles.container}>
+        <ButtonCaret direction="left" onClick={() => navigate(-1)}>
+          Назад
+        </ButtonCaret>
+        <main className={styles.main}>
+          <QuestionFull />
+        </main>
+      </div>
+    </div>
+  )
 }

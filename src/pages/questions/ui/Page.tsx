@@ -5,10 +5,12 @@ import { Questions } from '@/widgets/questions'
 
 export const Main = () => {
   return (
-    <main className={styles.main}>
-      <Questions />
+    <div className="wrapper">
+      <main className={styles.main}>
+        <Questions />
 
-      <Filters />
-    </main>
+        <Filters />
+      </main>
+    </div>
   )
 }

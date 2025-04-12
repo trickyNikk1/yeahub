@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 
 interface Props {
   children: React.ReactNode
-  style?: 'primary' | 'secondary' | 'option'
+  variant?: 'primary' | 'secondary' | 'option' | 'link'
   isActive?: boolean
 }
 
@@ -12,12 +12,12 @@ export const Button = ({
   className,
   isActive = false,
   children,
-  style = 'primary',
+  variant = 'primary',
   ...otherProps
 }: Props & React.HTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
-      className={`${styles.button} ${styles[style]} ${isActive ? styles.active : ''} ${className ?? ''}`}
+      className={`${styles.button} ${styles[variant]} ${isActive ? styles.active : ''} ${className ?? ''}`}
       {...otherProps}
     >
       {children}

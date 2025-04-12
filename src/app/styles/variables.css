@@ -1,16 +1,14 @@
 :root {
   /* Widths */
-  --container-width: 1216px;
-  --container-width-lg: 960px;
-  --container-width-tablet: 708px;
-  --container-width-sm: 540px;
-  --container-width-mobile: 100%;
-  --grid-template-columns: 332px 244px 244px;
+  --wrapper-width-desktop: 1216px;
+  --wrapper-width-lg: 960px;
+  --wrapper-width-tablet: 708px;
+  --wrapper-width-sm: 540px;
+  --wrapper-width-mobile: 100%;
   --header-height: 76px;
 
   /* Transitions */
   --base-transition: 0.3s ease-in-out;
-  --drawer-transition-speed: 0.3s;
 
   /* Fonts */
   --font-family-default: 'Manrope', sans-serif;
@@ -33,10 +31,6 @@
   --text-lg: 1.125rem; /* 18px */
   --text-xl: 1.25rem; /* 20px */
   --text-xxl: 1.5rem; /* 24px */
-
-  /* Padding */
-  --padding-container-sm: 10px 10px;
-  --padding-container-md: 15px 30px;
 
   /* Colors */
 

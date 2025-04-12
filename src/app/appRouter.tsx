@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router'
 
 import { BaseLayout } from './layouts/BaseLayout'
 
-import { Main } from '@/pages/main'
+import { Main } from '@/pages/questions'
 import { QuestionPage } from '@/pages/question'
 
 export const appRouter = createBrowserRouter([

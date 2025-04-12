@@ -2,22 +2,24 @@ import { useState } from 'react'
 
 import styles from './styles.module.css'
 
-interface Props<T extends { id?: string | number }> {
-  title: string
+interface Props<T> {
+  title?: string
   options: T[]
   limit?: number
   renderOption?: (option: T, index?: number) => React.ReactNode
   onOpen?: () => void
   onClose?: () => void
+  getKey?: (option: T, index: number) => string | number
 }
 
-export const OptionsList = <T extends { id?: string | number }>({
+export const OptionsList = <T,>({
   title,
   options = [],
   limit = 5,
   renderOption,
   onOpen = () => {},
-  onClose = () => {}
+  onClose = () => {},
+  getKey = (_, index) => index
 }: Props<T>) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -33,12 +35,12 @@ export const OptionsList = <T extends { id?: string | number }>({
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>{title}</h3>
+      {title ? <h3 className={styles.title}>{title}</h3> : null}
       <ul className={styles.list}>
         {options
           .slice(0, isOpen ? options.length : limit)
           .map((option, index) => (
-            <li key={option?.id || index}>
+            <li key={getKey(option, index)}>
               {(renderOption && renderOption(option, index)) || null}
             </li>
           ))}

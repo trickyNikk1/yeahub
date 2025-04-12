@@ -1,5 +1,6 @@
 .button {
   position: relative;
+  flex: 0 0 auto;
   width: 28px;
   height: 28px;
   border: 1px solid var(--black-200);
@@ -7,7 +8,20 @@
   cursor: pointer;
   border-radius: 8px;
   align-self: flex-end;
-  background-image: url('/src/shared/assets/svg/filters-icon.svg');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 20px 20px;
+}
+
+.filters {
+  background-image: url('/src/shared/assets/svg/filters-icon.svg');
+  background-size: 15px 12.51px;
+}
+
+.diploma {
+  width: 36px;
+  height: 36px;
+  filter: grayscale(1);
+  background-image: url('/src/shared/assets/svg/diploma-verified-icon.svg');
+  background-size: 20px 20px;
 }
