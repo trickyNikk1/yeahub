@@ -1,3 +1,9 @@
-import { SkeletonType, Skill, Specialization } from './types'
+import {
+  IFilters,
+  SkeletonType,
+  Skill,
+  Specialization,
+  ErrorType
+} from './types'
 
-export type { SkeletonType, Skill, Specialization }
+export type { IFilters, SkeletonType, Skill, Specialization, ErrorType }

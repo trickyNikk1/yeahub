@@ -2,25 +2,29 @@ import { createBrowserRouter } from 'react-router'
 
 import { BaseLayout } from './layouts/BaseLayout'
 
-import { Main } from '@/pages/main'
+import { Main } from '@/pages/questions'
 import { QuestionPage } from '@/pages/question'
+import { RouterErrorBoundary } from '@/shared/ui'
 
 export const appRouter = createBrowserRouter([
   {
     element: <BaseLayout />,
-    errorElement: <div>Error</div>,
+    errorElement: <RouterErrorBoundary />,
     children: [
       {
         path: '/',
-        element: <Main />
+        element: <Main />,
+        errorElement: <RouterErrorBoundary />
       },
       {
         path: '/questions',
-        element: <Main />
+        element: <Main />,
+        errorElement: <RouterErrorBoundary />
       },
       {
         path: '/questions/:id',
-        element: <QuestionPage />
+        element: <QuestionPage />,
+        errorElement: <RouterErrorBoundary />
       },
       {
         path: '*',

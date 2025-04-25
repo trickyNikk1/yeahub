@@ -32,7 +32,7 @@ export const RateList = () => {
       options={options}
       renderOption={option => (
         <Button
-          style="option"
+          variant="option"
           isActive={currentRate.includes(Number(option.title))}
           onClick={handleSelectRate}
         >

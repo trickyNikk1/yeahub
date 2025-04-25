@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface initialState {
+interface FiltersState {
   titleOrDescriptionSearch: string
   specializationId: number
   specializationTitle: string
@@ -10,9 +10,9 @@ interface initialState {
   isOpen: boolean
 }
 
-const initialState: initialState = {
+const initialState: FiltersState = {
   titleOrDescriptionSearch: '',
-  specializationId: -1,
+  specializationId: 11,
   specializationTitle: '',
   skillsIds: [],
   complexity: [],
@@ -33,10 +33,6 @@ const filtersSlice = createSlice({
     },
 
     setSpecializationId(state, action) {
-      if (state.specializationId === action.payload) {
-        state.specializationId = -1
-        return
-      }
       state.specializationId = action.payload
       state.skillsIds = []
     },
@@ -67,6 +63,14 @@ const filtersSlice = createSlice({
         return
       }
       state.rate = [...state.rate, action.payload]
+    },
+    setFilters(state, action: PayloadAction<Omit<FiltersState, 'isOpen'>>) {
+      state.titleOrDescriptionSearch = action.payload.titleOrDescriptionSearch
+      state.specializationId = action.payload.specializationId
+      state.skillsIds = action.payload.skillsIds
+      state.complexity = action.payload.complexity
+      state.rate = action.payload.rate
+      state.specializationTitle = action.payload.specializationTitle
     }
   }
 })
@@ -78,6 +82,7 @@ export const {
   setSpecializationId,
   setComplexity,
   setRate,
-  setIsOpen
+  setIsOpen,
+  setFilters
 } = filtersSlice.actions
 export const filtersReducer = filtersSlice.reducer

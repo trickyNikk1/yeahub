@@ -1,3 +1,5 @@
+import { Skeleton } from '../Skeleton/Skeleton'
+
 import styles from './styles.module.css'
 
 interface Props {
@@ -8,18 +10,18 @@ interface Props {
 export const SkeletonOptions = ({ count = 5, type = 'normal' }: Props) => {
   return (
     <div className={styles.options}>
-      <div className={styles.title}></div>
+      <Skeleton className={styles.title}></Skeleton>
       <div className={styles.list}>
         {[...Array(count)].map((_, index) => {
           return (
-            <div
+            <Skeleton
               key={index}
               className={`${styles.option} ${index % 2 && type === 'reverse' ? styles['option-lg'] : styles['option-xl']}`}
-            ></div>
+            ></Skeleton>
           )
         })}
       </div>
-      <div className={styles.button}></div>
+      <Skeleton className={styles.button}></Skeleton>
     </div>
   )
 }

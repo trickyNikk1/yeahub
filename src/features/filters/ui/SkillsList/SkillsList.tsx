@@ -2,7 +2,12 @@ import { useState } from 'react'
 
 import { setSkillsIds } from '../../model/slice'
 
-import { Button, OptionsList, Skeleton } from '@/shared/ui'
+import {
+  Button,
+  OptionsList,
+  SkeletonGroup,
+  SkeletonOptions
+} from '@/shared/ui'
 import { useAppDispatch, useAppSelector } from '@/shared/lib'
 import { Skill, useGetSkillsQuery } from '@/entities/skill'
 
@@ -28,7 +33,10 @@ export const SkillsList = () => {
   }
 
   return (
-    <Skeleton isLoading={isLoading} type="optionsReverse">
+    <SkeletonGroup
+      isLoading={isLoading}
+      skeleton={<SkeletonOptions type="reverse" />}
+    >
       <OptionsList<Skill>
         onOpen={() => {
           setLimit(data?.total || 20)
@@ -38,7 +46,7 @@ export const SkillsList = () => {
         renderOption={option => (
           <Button
             data-id={option.id}
-            style="option"
+            variant="option"
             isActive={skillsIds.includes(option.id)}
             onClick={handleSelectSkill}
           >
@@ -56,6 +64,6 @@ export const SkillsList = () => {
           </Button>
         )}
       />
-    </Skeleton>
+    </SkeletonGroup>
   )
 }

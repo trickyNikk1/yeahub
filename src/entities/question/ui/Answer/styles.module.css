@@ -1,0 +1,35 @@
+.answer {
+  color: var(--black-700);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 130%;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  transition: height var(--base-transition);
+}
+
+.answer.long {
+  overflow-y: hidden;
+  height: 250px;
+}
+
+.answer.long.open {
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.answer pre {
+  overflow: auto;
+}
+
+@media (width >= 768px) {
+  .answer {
+    margin-top: 20px;
+  }
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: 120%;
+}

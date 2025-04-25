@@ -98,27 +98,3 @@
   height: 19px;
   border-radius: 4px;
 }
-
-.search,
-.title,
-.option,
-.button {
-  background: linear-gradient(
-    90deg,
-    var(--black-100) 0%,
-    var(--black-300) 50%,
-    var(--black-100) 100%
-  );
-  background-size: 400% 400%;
-  animation: pulse 1.2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0% {
-    background-position: 0% 0%;
-  }
-
-  100% {
-    background-position: -135% 0%;
-  }
-}

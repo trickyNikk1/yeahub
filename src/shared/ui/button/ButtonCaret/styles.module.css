@@ -1,0 +1,31 @@
+.button {
+  position: relative;
+  padding: 4px;
+  color: var(--purple-700);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 120%;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.left {
+  padding-left: 28px;
+  align-self: flex-start;
+  background-image: url('/src/shared/assets/svg/caret-left.svg');
+  background-position: left center;
+}
+
+.right {
+  padding-right: 28px;
+  align-self: flex-end;
+  background-image: url('/src/shared/assets/svg/caret-right.svg');
+  background-position: right center;
+}
+
+.down {
+  padding-right: 28px;
+  align-self: flex-end;
+  background-image: url('/src/shared/assets/svg/chevron-down-purple.svg');
+  background-position: right center;
+}

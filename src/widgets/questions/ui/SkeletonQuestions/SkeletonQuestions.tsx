@@ -1,30 +1,32 @@
 import styles from './styles.module.css'
 
+import { Skeleton } from '@/shared/ui'
+
 export const SkeletonQuestions = ({ count = 7 }: { count?: number }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles['main-title']}></div>
-        <div className={styles['filters-button']}></div>
+        <Skeleton className={styles['main-title']}></Skeleton>
+        <Skeleton className={styles['filters-button']}></Skeleton>
       </div>
 
       <div className={styles.questions}>
         {[...Array(count)].map((_, index) => {
           return (
             <div key={index} className={styles.question}>
-              <div className={styles['question-title']}></div>
-              <div className={styles['question-icon']}></div>
+              <Skeleton className={styles['question-title']}></Skeleton>
+              <Skeleton className={styles['question-icon']}></Skeleton>
             </div>
           )
         })}
       </div>
 
       <div className={styles.pagination}>
-        <div className={styles.prev}></div>
+        <Skeleton className={styles.prev}></Skeleton>
         {[...Array(count)].map((_, index) => {
-          return <div key={index} className={styles.page}></div>
+          return <Skeleton key={index} className={styles.page}></Skeleton>
         })}
-        <div className={styles.prev}></div>
+        <Skeleton className={styles.prev}></Skeleton>
       </div>
     </div>
   )

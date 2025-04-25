@@ -15,13 +15,11 @@ export interface IQuestion {
   complexity: number
   createdAt: string
   updatedAt: string
-  createdBy: string
-  updatedBy: string | null
+  createdBy: { userId: string; username: string }
+  updatedBy: { userId: string; username: string }
   questionSpecializations: Specialization[]
   questionSkills: Skill[]
   checksCount?: number
-  isLearned?: boolean
-  profileId?: string
 }
 
 type skillFilterMode = 'ALL' | 'ANY'

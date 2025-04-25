@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { questionsApi } from '@/entities/question'
+import { questionReducer, questionsApi } from '@/entities/question'
 import { questionsPageReducer } from '@/widgets/questions'
 import { specializationsApi } from '@/entities/specialization'
 import { skillsApi } from '@/entities/skill'
@@ -9,6 +9,7 @@ import { filtersReducer } from '@/features/filters'
 export const store = configureStore({
   reducer: {
     filters: filtersReducer,
+    question: questionReducer,
     questionsPage: questionsPageReducer,
     [skillsApi.reducerPath]: skillsApi.reducer,
     [questionsApi.reducerPath]: questionsApi.reducer,

@@ -1,8 +1,12 @@
+import { SerializedError } from '@reduxjs/toolkit'
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
+
 export type SkeletonType =
   | 'questionsList'
-  | 'questionPage'
   | 'options'
   | 'optionsReverse'
+  | 'questionFullContent'
+  | 'questionFullInfo'
 
 export interface Skill {
   id: number
@@ -20,3 +24,28 @@ export interface Specialization {
   createdAt?: string
   updatedAt?: string
 }
+
+export interface IFilters {
+  titleOrDescriptionSearch: string
+  specializationId: number
+  specializationTitle: string
+  skillsIds: number[]
+  complexity: number[]
+  rate: number[]
+}
+
+export interface IFilters {
+  titleOrDescriptionSearch: string
+  specializationId: number
+  specializationTitle: string
+  skillsIds: number[]
+  complexity: number[]
+  rate: number[]
+}
+
+export type ErrorType =
+  | Error
+  | FetchBaseQueryError
+  | SerializedError
+  | undefined
+  | null

@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  width: 100%;
+  color: var(--white-900);
+  background-color: var(--red-500);
+  border-radius: 8px;
+  line-height: 120%;
+  flex-direction: column;
+}
+
+.error {
+  background-color: var(--red-500);
+}
+
+.warning {
+  background-color: var(--yellow-700);
+}
+
+.info {
+  background-color: var(--purple-500);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.text {
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-medium);
+}

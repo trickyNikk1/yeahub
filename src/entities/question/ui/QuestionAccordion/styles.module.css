@@ -44,13 +44,14 @@
   border-radius: 24px;
 }
 
-.answer {
-  color: var(--black-700);
-  font-size: var(--text-md);
-  font-weight: var(--font-weight-medium);
-  line-height: 130%;
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.answer pre {
-  overflow: auto;
+@media (width >= 992px) {
+  .labels {
+    gap: 40px;
+  }
 }
