@@ -20,10 +20,6 @@ export const QuestionFullInfo = ({ data, isLoading }: Props) => {
   const dispatch = useAppDispatch()
   const isInfoOpen = useAppSelector(state => state.question.isInfoOpen)
 
-  console.log(data?.createdBy)
-  const createdBy: { userId: string; firstName: string; lastName: string } =
-    data?.createdBy ? JSON.parse(data?.createdBy) : null
-
   const mainInfoEl = (
     <>
       <QuestionLabels
@@ -64,11 +60,11 @@ export const QuestionFullInfo = ({ data, isLoading }: Props) => {
     </>
   )
 
-  const authorEl = createdBy && (
+  const authorEl = data?.createdBy && (
     <span className={styles.author}>
       Автор:{' '}
       <Link to={''} className={styles.name}>
-        {createdBy.firstName ?? ''} {createdBy.lastName ?? ''}
+        {data?.createdBy.username ?? ''}
       </Link>
     </span>
   )
