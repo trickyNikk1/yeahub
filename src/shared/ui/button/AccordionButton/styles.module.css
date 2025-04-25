@@ -41,15 +41,17 @@
 
 .chevron {
   display: inline-block;
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
+  transform: rotate(180deg);
+  transition: transform var(--base-transition);
   background-image: url('/src/shared/assets/svg/chevron-down-purple.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 15.5px 7.5px;
-  transition: transform var(--base-transition);
 }
 
 .button-open .chevron {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }

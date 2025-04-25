@@ -1,7 +1,8 @@
-import { useEffect, useMemo } from 'react'
+import { useSearchParams } from 'react-router'
 
-import { setCurrentPage } from '../../model/questionsPageSlice'
 import { SkeletonQuestions } from '../SkeletonQuestions/SkeletonQuestions'
+import { useFilters } from '../../model/hooks/useFilters'
+import { usePagination } from '../../model/hooks/usePagination'
 
 import styles from './styles.module.css'
 
@@ -9,46 +10,28 @@ import {
   QuestionAccordion,
   useGetPublicQuestionsQuery
 } from '@/entities/question'
-import { useAppDispatch, useAppSelector, useDebounce } from '@/shared/lib'
-import { ButtonFilters, Card, Pagination, SkeletonGroup } from '@/shared/ui'
+import { SetContent, useAppDispatch, useDebounce } from '@/shared/lib'
+import { ButtonFilters, Card, Pagination } from '@/shared/ui'
 import { setIsOpen } from '@/features/filters'
 
 export const Questions = () => {
   const dispatch = useAppDispatch()
-
-  const page = useAppSelector(state => state.questionsPage.current)
-  const filters = useAppSelector(state => state.filters)
-
-  const memoizedFilters = useMemo(
-    () => ({
-      titleOrDescription: filters.titleOrDescriptionSearch,
-      specialization: filters.specializationId,
-      skillsIds: filters.skillsIds,
-      complexity: filters.complexity,
-      rate: filters.rate
-    }),
-    [
-      filters.titleOrDescriptionSearch,
-      filters.specializationId,
-      filters.skillsIds,
-      filters.complexity,
-      filters.rate
-    ]
+  const [searchParams, setSearchParams] = useSearchParams()
+  const { specializationTitle, ...filters } = useFilters(
+    searchParams,
+    setSearchParams
   )
+  const { page, setPage } = usePagination(searchParams, setSearchParams)
 
-  useEffect(() => {
-    dispatch(setCurrentPage(1))
-  }, [memoizedFilters, dispatch])
+  const debouncedFilters = useDebounce(filters, 500)
 
-  const debouncedFilters = useDebounce(memoizedFilters, 500)
-
-  const { isLoading, data } = useGetPublicQuestionsQuery({
+  const { isLoading, isFetching, error, data } = useGetPublicQuestionsQuery({
     page,
-    ...(debouncedFilters.titleOrDescription !== ''
-      ? { titleOrDescription: debouncedFilters.titleOrDescription }
+    ...(debouncedFilters.titleOrDescriptionSearch !== ''
+      ? { titleOrDescription: debouncedFilters.titleOrDescriptionSearch }
       : {}),
-    ...(debouncedFilters.specialization !== -1
-      ? { specialization: debouncedFilters.specialization }
+    ...(debouncedFilters.specializationId !== -1
+      ? { specialization: debouncedFilters.specializationId }
       : {}),
     ...(debouncedFilters.skillsIds.length
       ? { skills: debouncedFilters.skillsIds }
@@ -60,42 +43,39 @@ export const Questions = () => {
     limit: 10
   })
 
-  const setPage = (page: number) => dispatch(setCurrentPage(page))
-
   return (
-    <SkeletonGroup isLoading={isLoading} skeleton={<SkeletonQuestions />}>
+    <SetContent
+      isLoading={isLoading}
+      isFetching={isFetching}
+      error={error}
+      skeleton={<SkeletonQuestions />}
+      data={data?.data}
+    >
       {data ? (
         <Card>
           <section className={styles.container}>
             <div className={styles.header}>
-              <h1 className={styles.title}>
-                Вопросы {filters.specializationTitle}
-              </h1>
+              <h1 className={styles.title}>Вопросы {specializationTitle}</h1>
               <ButtonFilters
                 className={styles['filters-button']}
                 onClick={() => dispatch(setIsOpen(true))}
               />
             </div>
             <ul className={styles.list}>
-              {data.data.map(question => {
-                return (
-                  <li key={question.id} className={styles.item}>
-                    <QuestionAccordion questionData={question} />
-                  </li>
-                )
-              })}
+              {data.data.map(question => (
+                <li key={question.id} className={styles.item}>
+                  <QuestionAccordion questionData={question} />
+                </li>
+              ))}
             </ul>
-
             <Pagination
               total={data && Math.ceil(data.total / data.limit)}
-              current={data?.page}
-              handler={page => {
-                setPage(page)
-              }}
+              current={data && data.page}
+              handler={newPage => setPage(newPage)}
             />
           </section>
         </Card>
       ) : null}
-    </SkeletonGroup>
+    </SetContent>
   )
 }

@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '@/shared/lib'
 
 export const Filters = () => {
   const dispatch = useAppDispatch()
-  const { isOpen } = useAppSelector(state => state.filters)
+  const isOpen = useAppSelector(state => state.filters.isOpen)
 
   return (
     <AdaptiveSidePanel

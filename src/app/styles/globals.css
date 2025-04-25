@@ -74,3 +74,8 @@ a.active {
     max-width: 1216px;
   }
 }
+
+.blur {
+  filter: blur(2px);
+  pointer-events: none;
+}
