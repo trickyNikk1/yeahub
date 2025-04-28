@@ -16,7 +16,7 @@ import { AccordionButton } from './button/AccordionButton/AccordionButton'
 import { LinkMore } from './LinkMore/LinkMore'
 import { ButtonMore } from './button/ButtonMore/ButtonMore'
 import { RouterErrorBoundary } from './RouterErrorBoundary/RouterErrorBoundary'
-import { ErrorMessage } from './ErrorMessage/ErrorMesaage'
+import { ErrorMessage } from './ErrorMessage/ErrorMessage'
 import { Loader } from './Loader/Loader'
 
 export {

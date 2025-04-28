@@ -38,7 +38,7 @@ export const QuestionAccordion = ({ questionData: question }: Props) => {
           <img src={question.imageSrc} alt="Question image" />
         )}
         <Answer className={styles.answer} answerData={question.shortAnswer} />
-        <LinkMore to={`questions/${question.id}`}>Подробнее</LinkMore>
+        <LinkMore to={`${question.id}`}>Подробнее</LinkMore>
       </div>
     </article>
   )

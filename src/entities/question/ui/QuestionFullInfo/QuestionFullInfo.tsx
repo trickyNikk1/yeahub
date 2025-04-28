@@ -41,6 +41,7 @@ export const QuestionFullInfo = ({ data, isLoading }: Props) => {
                 width={20}
                 height={20}
                 style={{ objectFit: 'contain' }}
+                loading="lazy"
               />
             ) : null}
 

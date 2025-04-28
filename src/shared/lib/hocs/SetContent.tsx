@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { JSX } from 'react'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { SerializedError } from '@reduxjs/toolkit'
@@ -46,5 +47,5 @@ export const SetContent = <T,>({
     return <ErrorMessage message={`${error.name}`} />
   if (error && 'status' in error)
     return <ErrorMessage message={`Ошибка ${error.status}`} />
-  return children
+  return <Suspense fallback={skeleton}>{children}</Suspense>
 }
