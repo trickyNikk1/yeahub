@@ -4,7 +4,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 100;
+  z-index: 1;
   width: 1em;
   height: 1em;
   color: var(--purple-700);

@@ -1,3 +1,3 @@
-import { Main } from './ui/Page'
+import { QuestionsPage } from './ui/Page'
 
-export { Main }
+export default QuestionsPage
