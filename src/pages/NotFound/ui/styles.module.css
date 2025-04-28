@@ -1,0 +1,9 @@
+.container {
+  margin-top: 20px;
+}
+
+.title {
+  color: var(--purple-900);
+  font-size: var(--font-xxl);
+  text-align: center;
+}

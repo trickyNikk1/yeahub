@@ -2,7 +2,7 @@ import { Outlet } from 'react-router'
 
 import { Header } from '@/widgets/header'
 
-export const BaseLayout = () => {
+const BaseLayout = () => {
   return (
     <>
       <Header />
@@ -10,3 +10,4 @@ export const BaseLayout = () => {
     </>
   )
 }
+export default BaseLayout

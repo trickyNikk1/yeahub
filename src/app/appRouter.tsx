@@ -1,34 +1,52 @@
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, Navigate } from 'react-router'
+import { lazy, Suspense } from 'react'
 
-import { BaseLayout } from './layouts/BaseLayout'
+import { Loader, RouterErrorBoundary } from '@/shared/ui'
 
-import { Main } from '@/pages/questions'
-import { QuestionPage } from '@/pages/question'
-import { RouterErrorBoundary } from '@/shared/ui'
+const BaseLayout = lazy(() => import('./layouts/BaseLayout'))
+const QuestionsPage = lazy(() => import('@/pages/questions'))
+const QuestionPage = lazy(() => import('@/pages/question'))
+const NotFoundPage = lazy(() => import('@/pages/NotFound'))
 
 export const appRouter = createBrowserRouter([
   {
-    element: <BaseLayout />,
+    element: (
+      <Suspense fallback={<Loader />}>
+        <BaseLayout />
+      </Suspense>
+    ),
     errorElement: <RouterErrorBoundary />,
     children: [
       {
         path: '/',
-        element: <Main />,
+        element: <Navigate to="questions" replace />,
         errorElement: <RouterErrorBoundary />
       },
       {
         path: '/questions',
-        element: <Main />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <QuestionsPage />,
+          </Suspense>
+        ),
         errorElement: <RouterErrorBoundary />
       },
       {
         path: '/questions/:id',
-        element: <QuestionPage />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <QuestionPage />,
+          </Suspense>
+        ),
         errorElement: <RouterErrorBoundary />
       },
       {
         path: '*',
-        element: <div>404</div>
+        element: (
+          <Suspense fallback={<Loader />}>
+            <NotFoundPage />
+          </Suspense>
+        )
       }
     ]
   }
